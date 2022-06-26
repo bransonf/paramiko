@@ -2264,9 +2264,9 @@ class Transport(threading.Thread, ClosingContextManager):
             # give them 15 seconds for the first line, then just 2 seconds
             # each additional line.  (some sites have very high latency.)
             if i == 0:
-                timeout = self.banner_timeout
+                timeout = 30
             else:
-                timeout = 2
+                timeout = 30
             try:
                 buf = self.packetizer.readline(timeout)
             except ProxyCommandFailure:
